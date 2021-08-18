@@ -102,8 +102,10 @@ describe('When rendering <Pokedex />', () => {
         isPokemonFavoriteById={ isFavoriteMock }
       />,
     );
+    expect(pokemonType().textContent).toEqual('Electric');
     userEvent.click(nextPokemon());
-    expect(pokemonType).not.toEqual(/electric/i);
+    expect(pokemonType().textContent).not.toEqual('Electric');
+    userEvent.click(screen.getByRole('button', { name: 'Fire' }));
     userEvent.click(screen.getByRole('button', { name: /all/i }));
     userEvent.click(nextPokemon());
     expect(pokemonType).not.toEqual(/electric/i);
