@@ -56,6 +56,7 @@ describe('When rendering <Pokedex />', () => {
 
     expect(screen.getByText(/pikachu/i));
     expect(nextPokemon()).toBeInTheDocument();
+    expect(nextPokemon().textContent).toEqual('Próximo pokémon');
 
     for (let index = 0; index < TIMES_TO_CLICK; index += 1) {
       userEvent.dblClick(nextPokemon());
